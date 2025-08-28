@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateTaskEvent } from './events/create-task.event';
 
 @Injectable()
@@ -7,10 +7,11 @@ export class AppService {
 
   handleCreateTask(data: CreateTaskEvent) {
     this.tasks.push(data);
-    console.log('Request hit to task Service');
+    Logger.log(`Task created: ${JSON.stringify(data)}`);
   }
 
   getTasks() {
+    Logger.log(`Fetching all tasks`);
     return this.tasks;
   }
 }

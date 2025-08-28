@@ -8,10 +8,9 @@ import { CreateUser } from './dto/create-user.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-
   @Post('create-user')
   createUser(@Body() userRequest: CreateUser) {
-    this.appService.createUser(userRequest);
+    return this.appService.createUser(userRequest);
   }
 
   @Get('users')
@@ -21,16 +20,16 @@ export class AppController {
 
   @Post('send-email')
   sendEmail(@Body() emailRequest: EmailRequest) {
-    this.appService.sendEmail(emailRequest);
+    return this.appService.sendEmail(emailRequest);
   }
 
   @Post('create-task')
   createTask(@Body() taskRequest: CreateTask) {
-    this.appService.createTask(taskRequest);
+    return this.appService.createTask(taskRequest);
   }
 
   @Get('tasks')
-  getTasks() {
-    return this.appService.getTasks();
+  async getTasks() {
+    return await this.appService.getTasks();
   }
 }

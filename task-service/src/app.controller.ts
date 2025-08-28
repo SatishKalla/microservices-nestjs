@@ -12,7 +12,7 @@ export class AppController {
     this.appService.handleCreateTask(data);
   }
 
-  @MessagePattern({ cmd: 'get-tasks' })
+  @MessagePattern({ cmd: 'get-tasks' }, {})
   getTasks() {
     return this.appService.getTasks();
   }
