@@ -1,5 +1,5 @@
 
-# Nest JS - Micro Services - Example
+# Nest JS - Micro Services - Example with TCP
 
 After downloading the repository
 
