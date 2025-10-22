@@ -1,5 +1,6 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
+import { firstValueFrom } from 'rxjs';
 
 interface PaymentService {
   processPayment(data: { orderId: number; amount: number }): any;
@@ -21,10 +22,12 @@ export class AppService implements OnModuleInit {
   }
 
   async createOrder() {
-    const response = await this.paymentService.processPayment({
-      orderId: Date.now(),
-      amount: 99.99,
-    });
+    const response = await firstValueFrom(
+      this.paymentService.processPayment({
+        orderId: Date.now(),
+        amount: 99.99,
+      }),
+    );
 
     return { orderId: Date.now(), payment: response };
   }
