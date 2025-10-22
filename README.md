@@ -1,4 +1,4 @@
-# Nest JS - Micro Services - Concepts
+# Nest JS - Microservices - Concepts
 
 ## Communication
 
