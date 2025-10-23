@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
+import { RedisModule } from './shared/redis/redis.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { join } from 'path';
         },
       },
     ]),
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],

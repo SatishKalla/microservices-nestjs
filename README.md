@@ -2,16 +2,22 @@
 
 ## Communication
 
-### Internal
+### Synchronous
 
 - TCP — low-level transport used for service-to-service communication (user-service, email-service, task-service)
 - gRPC — high-performance, protobuf-based RPC framework for inter-service calls (order-service, payment-service)
+
+### Asynchronous
+
+- Redis — Used for Pub/Sub messaging (order-service, payment-service)
 
 ## Installation
 
 After downloading the repository
 
 `npm install` in all the three sub folders `user-service`, `email-service`, `task-service`, `order-service`, `payment-service`.
+
+run `redis` either in your local machine or run using docker
 
 ## Micro services details
 
@@ -42,3 +48,5 @@ Run all the micro services with npm by going to each subfolder
 [tasks](http://localhost:3000/tasks) (uses tcp to communicate between user and task services)
 
 [create order](https://localhost:3004/orders/create) (uses gRpc to communicate between order and payment services)
+
+[publish order](https://localhost:3004/orders/publish-order-redis) (uses redis pub/sub messaging to communicate between order and payment services)

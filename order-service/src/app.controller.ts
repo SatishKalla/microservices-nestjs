@@ -14,4 +14,9 @@ export class AppController {
   async createOrder() {
     return this.appService.createOrder();
   }
+
+  @Post('publish-order-redis')
+  async publishOrderRedis() {
+    return this.appService.publishOrderRedis();
+  }
 }
